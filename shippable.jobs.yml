@@ -24,9 +24,8 @@ jobs:
       - IN: deep_gh_ssh
       - TASK:
         - script: cd IN/
-        - script: cd sshkey/
+        - script: cd deep_gh_ssh/
         - script: ls -a
-        - script: cat deep_ssh_key
         - script: ssh -tt ubuntu@ec2-54-89-188-192.compute-1.amazonaws.com 'touch hello1.txt'
         
         - script: echo "integration name------>-"$OLDSSHKEY_NAME
