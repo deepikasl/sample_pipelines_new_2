@@ -28,10 +28,10 @@ jobs:
         - script: ls -a
         - script: ssh -tt -i "deep_gh_ssh_key" ubuntu@ec2-54-89-188-192.compute-1.amazonaws.com 'touch hello1.txt'
         
-        - script: echo "integration name------>-"$OLDSSHKEY_NAME
-        - script: echo "public key------>-"$OLDSSHKEY_INTEGRATION_PUBLICKEY
-        - script: echo "private key----->-"$OLDSSHKEY_INTEGRATION_PRIVATEKEY
-        - script: echo "public key path----->-"$OLDSSHKEY_PUBLIC_KEY_PATH
-        - script: echo "private key path------->-"$OLDSSHKEY_PRIVATE_KEY_PATH
+        - script: echo "integration name------>-"$DEEP_GH_SSH_NAME
+        - script: echo "public key------>-"$DEEP_GH_SSH_INTEGRATION_PUBLICKEY
+        - script: echo "private key----->-"$DEEP_GH_SSH_INTEGRATION_PRIVATEKEY
+        - script: echo "public key path----->-"$DEEP_GH_SSH_PUBLIC_KEY_PATH
+        - script: echo "private key path------->-"$DEEP_GH_SSH_PRIVATE_KEY_PATH
         - script: 
         
