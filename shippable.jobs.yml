@@ -21,7 +21,7 @@ jobs:
     type: runSh
     steps:
       - IN: dv-man
-      - IN: deep_ssh_key
+      - IN: deep_gh_ssh
       - TASK:
         - script: cd IN/
         - script: cd sshkey/
