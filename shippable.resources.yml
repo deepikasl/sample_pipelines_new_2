@@ -29,7 +29,7 @@ resources:
  #   type: integration
  #   integration: test-sshKey
 
-  - name: deep_ssh_key
+  - name: deep_gh_ssh
     type: integration
-    integration: deep_ssh_key
+    integration: deep_gh_ssh
     
