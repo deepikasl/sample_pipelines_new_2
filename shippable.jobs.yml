@@ -26,7 +26,7 @@ jobs:
         - script: cd IN/
         - script: cd deep_gh_ssh/
         - script: ls -a
-        - script: ssh -tt -i "deep_gh_ssh_key.pub" ubuntu@ec2-54-89-188-192.compute-1.amazonaws.com 'touch hello1.txt'
+        - script: ssh -tt -i "deep_gh_ssh_key" ubuntu@ec2-54-89-188-192.compute-1.amazonaws.com 'touch hello1.txt'
         
         - script: echo "integration name------>-"$OLDSSHKEY_NAME
         - script: echo "public key------>-"$OLDSSHKEY_INTEGRATION_PUBLICKEY
