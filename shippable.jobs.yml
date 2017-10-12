@@ -21,11 +21,18 @@ jobs:
     type: runSh
     steps:
       - IN: dv-man
-      - IN: oldSshKey
+      - IN: deep_ssh_key
       - TASK:
+        - script: cd IN/
+        - script: cd sshkey/
+        - script: ls -a
+        - script: cat deep_ssh_key
+        - script: ssh -tt ubuntu@ec2-54-89-188-192.compute-1.amazonaws.com 'touch hello1.txt'
+        
         - script: echo "integration name------>-"$OLDSSHKEY_NAME
         - script: echo "public key------>-"$OLDSSHKEY_INTEGRATION_PUBLICKEY
         - script: echo "private key----->-"$OLDSSHKEY_INTEGRATION_PRIVATEKEY
         - script: echo "public key path----->-"$OLDSSHKEY_PUBLIC_KEY_PATH
         - script: echo "private key path------->-"$OLDSSHKEY_PRIVATE_KEY_PATH
+        - script: 
         
