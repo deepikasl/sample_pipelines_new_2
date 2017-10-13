@@ -1,5 +1,4 @@
 jobs:
-  
   - name: dockerPullJob
     type: runSh
     steps:
