@@ -3,6 +3,7 @@ jobs:
     type: runSh
     steps:
       - IN: ecrConfig
+        switch: off
         scopes:
           - ecr
       - TASK:
