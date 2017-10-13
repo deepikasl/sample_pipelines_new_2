@@ -8,11 +8,11 @@ jobs:
       - TASK:
         - script: docker pull 742038439709.dkr.ecr.us-west-2.amazonaws.com/sample_java:latest
    
-   - name: dockerPullJobNew
-     type: runSh
-     steps:
-       - IN: ecrConfigNew
-         scopes:
-           - ecr
-       - TASK:
-         - script: docker pull 742038439709.dkr.ecr.us-west-2.amazonaws.com/sample_java:latest
+  - name: dockerPullJobNew
+    type: runSh
+    steps:
+      - IN: ecrConfigNew
+        scopes:
+          - ecr
+      - TASK:
+        - script: docker pull 742038439709.dkr.ecr.us-west-2.amazonaws.com/sample_java:latest
