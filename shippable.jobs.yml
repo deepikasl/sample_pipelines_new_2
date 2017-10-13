@@ -7,7 +7,7 @@ jobs:
         scopes:
           - ecr
       - TASK:
-        - script: docker pull 742038439709.dkr.ecr.us-west-2.amazonaws.com/sample_java:latest
+        - script: docker pull 371325283159.dkr.ecr.eu-central-1.amazonaws.com/sample-code-test:latest
    
   - name: dockerPullJobNew
     type: runSh
