@@ -3,7 +3,7 @@ resources:
     type: cliConfig
     integration: deepika-ecr
     pointer:
-      region: us-west-2
+      region: eu-central-1
 
   - name: ecrConfigNew
     type: cliConfig
