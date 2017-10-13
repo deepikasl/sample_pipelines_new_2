@@ -15,4 +15,4 @@ jobs:
         scopes:
           - ecr
       - TASK:
-        - script: docker pull 742038439709.dkr.ecr.us-west-2.amazonaws.com/sample_java:latest
+        - script: docker push 742038439709.dkr.ecr.us-west-2.amazonaws.com/sample_java:latest
