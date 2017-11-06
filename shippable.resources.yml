@@ -1,66 +1,8 @@
 resources:
-  - name: nginx-image-prod11
+  - name: nginx-image-prod11-trigger
     type: image
     integration: "deepika-docker"
     pointer:
       sourceName: "ankul/nginx"
     seed:
       versionName: prod.14
-   
-  - name: dv-image
-    type: image
-    integration: "deepika-docker"
-    pointer:
-      sourceName: "library/nginx"
-    seed:
-      versionName: latest
-    
-  - name: ddc-param3
-    type: params
-    version:
-      params:
-        FOO: foo
-       
-  - name: ddc-param4
-    type: params
-    version:
-      params:
-        FOO1: foo1
-  
-  - name: dv-opts
-    type: dockerOptions
-    version:
-      memory: 64
-      cpuShares: 255
-      portMappings:
-        - "80:80"
-  
-  - name: box-opts
-    type: dockerOptions
-    version:
-      memory: 64
-      cpuShares: 512
-  
-  - name: ddc-cluster
-    type: cluster
-    integration: "deepika-ddc"
-    pointer:
-      sourceName: "ddc-cluster"
-      
-  - name: version-resource
-    type: version
-    seed:
-      versionName: "0.0.2-beta"
-
-  - name: infra-repo2
-    type: gitRepo
-    integration: deepika-git
-    pointer:
-      sourceName: deepikasl/VT1
-      branch: "master"
-      #buildOnCommit: true
-      buildOnPullRequest: true
-
-  - name: sshKeyIntegrations
-    type: integration
-    integration: deepika-ssh
