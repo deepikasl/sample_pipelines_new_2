@@ -1,31 +1,13 @@
 jobs:
 
-  - name: nginx-manifest-2
-    type: manifest
+  - name: VT1_runCI
+    type: runCI
     steps:
-      #- IN: ddc-param3
-      - IN: dv-image
-      - IN: nginx-manifest-2-trigger
+      - OUT: VT2_runCI
+ 
+  - name: VT2_runCI
+    type: runCI
+    steps:
+      - IN: VT1_runCI
       
-  - name: release-one
-    type: release
-    steps:
-      - IN: version-resource
-      - IN: nginx-manifest-2
-        versionNumber: 1
-      - IN: release-one-trigger
-      - TASK: managed
-        bump: major
-      
-  - name: nginx-manifest-11
-    type: manifest
-    steps:
-      - IN: nginx-image-prod11
-      - TASK: managed
-
-  - name: deploy-11
-    type: deploy
-    steps:
-      - IN: ddc-cluster
-      - TASK: managed
-        deployMethod: upgrade
+  
