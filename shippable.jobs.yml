@@ -1,9 +1,4 @@
 jobs:
-
-  - name: VT1_runCI
-    type: runCI
-    steps:
-      - OUT: VT2_runCI
  
   - name: VT2_runCI
     type: runCI
