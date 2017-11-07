@@ -4,4 +4,4 @@ resources:
     version:
       params:
         TEST: rc
-        TRIGGER_REASON: test
+        #TRIGGER_REASON: test
