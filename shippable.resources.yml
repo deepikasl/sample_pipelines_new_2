@@ -1,8 +1,6 @@
 resources:
-  - name: nginx-image-prod11-trigger
-    type: image
-    integration: "deepika-docker"
-    pointer:
-      sourceName: "ankul/nginx"
-    seed:
-      versionName: prod.14
+  - name: test_params
+    type: params
+    version:
+      params:
+        TEST: rc
