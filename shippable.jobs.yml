@@ -5,7 +5,7 @@ jobs:
     steps:
       - IN: VT1_runCI
       - TASK:
-        - script: export TRIGGER_REASON=BaseImgChanged
+        - script: export $TRIGGER_REASON=BaseImgChanged
         - script: echo"this is--"$TRIGGER_REASON
       
   
