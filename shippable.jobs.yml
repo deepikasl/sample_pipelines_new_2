@@ -1,8 +1,15 @@
 jobs:
  
+  - name: VT1_runCI
+    type: runCI
+    steps:
+      - OUT: test_params
+  
   - name: VT2_runCI
     type: runCI
     steps:
+      - IN: test_params
       - IN: VT1_runCI
+      
       
   
