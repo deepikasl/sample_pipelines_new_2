@@ -22,6 +22,7 @@ jobs:
     steps:
       - IN: dv-man
       - IN: deep_gh_ssh
+      - IN: deepika-gitRepo
       - TASK:
         - script: cd IN/
         - script: cd deep_gh_ssh/
