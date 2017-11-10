@@ -33,3 +33,9 @@ resources:
     type: integration
     integration: deep_gh_ssh
     
+  - name: deepika-gitRepo
+    type: gitRepo
+    integration: deepika-git
+    pointer:
+      sourceName: "deepikasl/VT1"
+      branch: master
