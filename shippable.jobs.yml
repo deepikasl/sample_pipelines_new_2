@@ -25,9 +25,9 @@ jobs:
       - IN: deepika-gitRepo
       - TASK:
         - script: cd IN/
-        - script: cd deep_gh_ssh/
-        - script: ls -a
-        - script: ssh -tt -i "deep_gh_ssh_key" ubuntu@ec2-54-89-188-192.compute-1.amazonaws.com 'touch hellodeep.txt'
+        #- script: cd deep_gh_ssh/
+        #- script: ls -a
+        #- script: ssh -tt -i "deep_gh_ssh_key" ubuntu@ec2-54-89-188-192.compute-1.amazonaws.com 'touch hellodeep.txt'
         
         - script: echo "integration name------>-"$DEEP_GH_SSH_NAME
         - script: echo "public key------>-"$DEEP_GH_SSH_INTEGRATION_PUBLICKEY
