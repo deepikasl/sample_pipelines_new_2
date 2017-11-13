@@ -39,4 +39,4 @@ resources:
     pointer:
       sourceName: "deepikasl/VT1"
       branch: master
-      buildOnPullRequestClose: true
+      buildOnPullRequestClose: false
