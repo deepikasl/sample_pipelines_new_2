@@ -40,3 +40,4 @@ resources:
       sourceName: "deepikasl/VT1"
       branch: master
       buildOnPullRequestClose: true
+      buildOnPullRequest: true
