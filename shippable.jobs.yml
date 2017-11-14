@@ -24,6 +24,8 @@ jobs:
       - IN: deep_gh_ssh
       - IN: deepika-gitRepo
       - TASK:
+        - script: echo "is_Pull_Request--->"$DEEPIKAGITREPO_IS_PULL_REQUEST
+        - script: echo "is_Pull_Request_CLOSE--->"$DEEPIKAGITREPO_IS_PULL_REQUEST_CLOSE
         - script: cd IN/
         #- script: cd deep_gh_ssh/
         #- script: ls -a
