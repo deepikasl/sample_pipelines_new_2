@@ -1,43 +1,107 @@
 resources:
-  - name: dv-image
-    type: image
-    integration: deepika-docker
+
+  - name: cliecrcluster
+    type: cluster
+    integration: "awskeys"
     pointer:
-      sourceName: "library/nginx"
-    seed:
-      versionName: latest
-
-  - name: slackNotification
-    type: notification
-    integration: deepika-slack
-    pointer:
-      recipients:
-        - "#deepika-test"
-
-  - name: myEmail
-    type: notification
-    pointer:
-      method: email
-      recipients:
-        -  "deepika@shippable.com"
-
-  - name: dockerIntegration
-    type: integration
-    integration: deepika-docker
-
- # - name: testSshKey
- #   type: integration
- #   integration: test-sshKey
-
-  - name: deep_gh_ssh
-    type: integration
-    integration: deep_gh_ssh
+      sourceName : "testrelease"
+      region: "us-west-2"
+  
+  - name: clikubecluster
+    type: cluster
+    integration: "kube"
     
-  - name: deepika-gitRepo
-    type: gitRepo
-    integration: deepika-git
+  - name: cligkecluster
+    type: cluster
+    integration: gcl
     pointer:
-      sourceName: "deepikasl/VT1"
-      branch: master
-      buildOnPullRequestClose: true
-      buildOnPullRequest: true
+      sourceName: "small-cluster" #name of the cluster we are deploying.
+      region: "us-central1-a"
+
+  - name: cli-configaws
+    type: cliConfig
+    integration: "awskeys"
+    pointer:
+      sourceName : "testrc"
+      region: "us-west-2"
+  
+  - name: cli-configdocker
+    type: cliConfig
+    integration: "docker"
+  
+  - name: cli-configgcl
+    type: cliConfig
+    integration: "gcl"
+  
+  - name: cli-configjfrog
+    type: cliConfig
+    integration: "jfrog"
+  
+  - name: cli-configkube
+    type: cliConfig
+    integration: "kube"
+  
+  - name: cli-configquay
+    type: cliConfig
+    integration: "quay"
+    
+  - name: cli-image1
+    type: image
+    integration: docker
+    pointer:
+      sourceName: "shippabledocker/pipelinev2"
+    seed:
+      versionName: "deploy.1"
+
+  - name: cli-image2
+    type: image
+    integration: docker
+    pointer:
+      sourceName: "scriptnull/busybox"
+    seed:
+      versionName: "nodeenv"
+
+  - name: cli-dopts1
+    type: dockerOptions
+    version:
+      memory: 124
+      cpuShares: 1
+      publishAllPorts : true
+      portMappings:
+        - "80:80"
+ 
+  - name: cli-params1
+    type: params
+    version:
+      params:
+        MONGO_API_URL: "localhost:28017"
+        DB_HOST: "ds015700.mlab.com"
+        DB_NAME: "ayeaye"
+        DB_PORT: "15700"
+        DB_USERNAME: "aye0aye"
+        DB_PASSWORD: "aye0aye"
+        ENVIRONMENT: "test-aws"
+  
+  - name: cli-params2
+    type: params
+    version:
+      params:
+        TEST: rc
+        secure: jSG65hVDJRaBuT/bRxTvpAC6rFcQswtSXpMYg46lnutNJ2sOsReYNTxXMvPoymro7MKlH9UiaKXndgMFrOkymzg9Tog3RqGXCKvaTLsa0gK7e/SFOs5TxeX27KcRut6e1TiL0Y3opTVJgWnTMkslWitFRcjXwGyrvzQrEQr78q+xhnLal72xvc4ojFaWUdTL72g3iNLklhoI4EsMoOj5KQnTZ2tgR+4/pYTKn6cCKzzK58T/rZXSqGb8QSSXTTGk3OH0rjKWd29Al082BRvPbcscPR2AfEdaAwtE7BJ06JPqBc+vDeFKD/bg00Euo02fed4uGh5T6W61FrdqZig/LA==
+        
+  - name: cli-scale1
+    type: replicas
+    version:
+      count: 1
+  
+  - name: cli-version
+    type: version
+    seed:
+      versionName: "0.0.0"
+
+  - name: cli-repo
+    type: gitRepo
+    integration: github
+    pointer:
+      sourceName: Varsha-Arun/sample_pipelines
+      branch: integrationsCli
