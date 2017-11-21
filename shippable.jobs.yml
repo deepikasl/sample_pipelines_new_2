@@ -1,40 +1,129 @@
 jobs:
-  - name: dv-man
+  - name: climanifest1
     type: manifest
     steps:
-      - IN: dv-image
-        pull: false
-
-  - name: multi-manifest
-    type:  deploy
+      - IN: cli-image1
+        pull: true
+  
+  - name: cliawsdeploy
+    type: deploy
     steps:
-      - IN: dv-man
-
-  - name: release-one
-    type: release
-    steps:
-      - IN: dv-man
+      - IN: climanifest1
+      - IN: cliecrcluster
       - TASK: managed
-        bump: major
-
-  - name: infra-provision
+  
+  - name: clikubedeploy
+    type: deploy
+    steps:
+      - IN: climanifest1
+      - IN: clikubecluster
+      - TASK: managed
+  
+  - name: cligkedeploy
+    type: deploy
+    steps:
+      - IN: climanifest1
+      - IN: cligkecluster
+      - TASK: managed
+      
+  - name: cli-runshecr
     type: runSh
     steps:
-      - IN: dv-man
-      - IN: deep_gh_ssh
-      - IN: deepika-gitRepo
+      - IN: cli-repo
+      - IN: cli-configaws
+        scopes: 
+          - ecr
       - TASK:
-        - script: echo "is_Pull_Request--->"$DEEPIKAGITREPO_IS_PULL_REQUEST
-        - script: echo "is_Pull_Request_CLOSE--->"$DEEPIKAGITREPO_IS_PULL_REQUEST_CLOSE
-        - script: cd IN/
-        #- script: cd deep_gh_ssh/
-        #- script: ls -a
-        #- script: ssh -tt -i "deep_gh_ssh_key" ubuntu@ec2-54-89-188-192.compute-1.amazonaws.com 'touch hellodeep.txt'
+        #- script: ls
+        - script: echo CLICONFIGAWS_INTEGRATION_ACCESSKEY=$CLICONFIGAWS_INTEGRATION_ACCESSKEY
+        - script: echo AWSCLICONFIG_INTEGRATION_SECRETKEY=${#CLICONFIGAWS_INTEGRATION_SECRETKEY}
+        - script: echo AWSCLICONFIG_NAME=$CLICONFIGAWS_NAME
+        - script: echo AWSCLICONFIG_ID=$CLICONFIGAWS_ID
+        - script: echo AWSCLICONFIG_TYPE=$CLICONFIGAWS_TYPE
+        - script: echo AWSCLICONFIG_INTEGRATION_TYPE=$CLICONFIGAWS_INTEGRATION_TYPE
+        - script: echo AWSCLICONFIG_OPEARATION=$CLICONFIGAWS_OPERATION
+        - script: echo AWSCLICONFIG_PATH=$CLICONFIGAWS_PATH
+        - script: echo AWSCLICONFIG_POINTER_REGION=$CLICONFIGAWS_POINTER_REGION
+        - script: echo AWSCLICONFIG_POINTER_CLUSTERNAME=$CLICONFIGAWS_POINTER_CLUSTERNAME
+        - script: echo AWSCLICONFIG_VERSIONNUMBER=$CLICONFIGAWS_VERSIONNUMBER
+        - script: echo AWSCLICONFIG_VERSIONNAME=$CLICONFIGAWS_VERSIONNAME
+        - script: echo AWSCLICONFIG_VERSIONID=$CLICONFIGAWS_VERSIONID
+        - script: docker pull 742038439709.dkr.ecr.us-west-2.amazonaws.com/sample_node
         
-        - script: echo "integration name------>-"$DEEP_GH_SSH_NAME
-        - script: echo "public key------>-"$DEEP_GH_SSH_INTEGRATION_PUBLICKEY
-        - script: echo "private key----->-"$DEEP_GH_SSH_INTEGRATION_PRIVATEKEY
-        - script: echo "public key path----->-"$DEEP_GH_SSH_PUBLIC_KEY_PATH
-        - script: echo "private key path------->-"$DEEP_GH_SSH_PRIVATE_KEY_PATH
-        - script: 
+  - name: cli-runshaws
+    type: runSh
+    steps:
+      - IN: cli-repo
+      - IN: cli-configaws
+        scopes:
+          - aws
+      - TASK:
+        - script: eb --version
+        - script: echo CLICONFIGAWS_INTEGRATION_ACCESSKEY=$CLICONFIGAWS_INTEGRATION_ACCESSKEY
+        - script: echo AWSCLICONFIG_INTEGRATION_SECRETKEY=${#CLICONFIGAWS_INTEGRATION_SECRETKEY}
+        - script: echo AWSCLICONFIG_NAME=$CLICONFIGAWS_NAME
+        - script: echo AWSCLICONFIG_ID=$CLICONFIGAWS_ID
+        - script: echo AWSCLICONFIG_TYPE=$CLICONFIGAWS_TYPE
+        - script: echo AWSCLICONFIG_INTEGRATION_TYPE=$CLICONFIGAWS_INTEGRATION_TYPE
+        - script: echo AWSCLICONFIG_OPEARATION=$CLICONFIGAWS_OPERATION
+        - script: echo AWSCLICONFIG_PATH=$CLICONFIGAWS_PATH
+        - script: echo AWSCLICONFIG_POINTER_REGION=$CLICONFIGAWS_POINTER_REGION
+        - script: echo AWSCLICONFIG_POINTER_CLUSTERNAME=$CLICONFIGAWS_POINTER_CLUSTERNAME
+        - script: echo AWSCLICONFIG_VERSIONNUMBER=$CLICONFIGAWS_VERSIONNUMBER
+        - script: echo AWSCLICONFIG_VERSIONNAME=$CLICONFIGAWS_VERSIONNAME
+        - script: echo AWSCLICONFIG_VERSIONID=$CLICONFIGAWS_VERSIONID      
+        
+  - name: cli-runshdocker
+    type: runSh
+    steps:
+      - IN: cli-repo
+      - IN: cli-configdocker
+      - TASK:
+        - script: echo CLICONFIGDOCKER_INTEGRATION_URL=$CLICONFIGDOCKER_INTEGRATION_URL
+        - script: echo CLICONFIGDOCKER_INTEGRATION_USERNAME=$CLICONFIGDOCKER_INTEGRATION_USERNAME
+        - script: echo CLICONFIGDOCKER_INTEGRATION_PASSWORD=${#CLICONFIGDOCKER_INTEGRATION_PASSWORD}
+        - script: echo CLICONFIGDOCKER_INTEGRATION_EMAIL=$CLICONFIGDOCKER_INTEGRATION_EMAIL
+        - script: docker pull shippabledocker/sample_node_pvt:latest.40
+ 
+  - name: cli-runshgcr
+    type: runSh
+    steps:
+      - IN: cli-repo
+      - IN: cli-configgcl
+        scopes:
+          - gcr
+      - TASK:
+        - script: echo CLICONFIGGCL_INTEGRATION_JSON_KEY=${#CLICONFIGGCL_INTEGRATION_JSON_KEY}
+        - script: docker pull gcr.io/vidya-project/node1-img:master.33
+  
+  - name: cli-runshjfrog
+    type: runSh
+    steps:
+      - IN: cli-repo
+      - IN: cli-configjfrog
+      - TASK:
+        - script: echo CLICONFIGJFROG_INTEGRATION_URL=$CLICONFIGJFROG_INTEGRATION_URL
+        - script: echo CLICONFIGJFROG_INTEGRATION_USERNAME=$CLICONFIGJFROG_INTEGRATION_USERNAME
+        - script: echo CLICONFIGJFROG_INTEGRATION_PASSWORD=${#CLICONFIGJFROG_INTEGRATION_PASSWORD}
+        - script: jfrog rt dl test-jfrog-ship/testoct.sh
+        
+  - name: cli-runshkube
+    type: runSh
+    steps:
+      - IN: cli-repo
+      - IN: cli-configkube
+      - TASK:
+        - script: echo CLICONFIGKUBE_INTEGRATION_KUBECONFIGCONTENT=${#CLICONFIGKUBE_INTEGRATION_KUBECONFIGCONTENT}
+  
+  - name: cli-runshquay
+    type: runSh
+    steps:
+      - IN: cli-repo
+      - IN: cli-configquay
+      - TASK:
+        - script: echo CLICONFIGQUAY_INTEGRATION_ACCESSTOKEN=${#CLICONFIGQUAY_INTEGRATION_ACCESSTOKEN}
+        - script: echo CLICONFIGQUAY_INTEGRATION_USERNAME=$CLICONFIGQUAY_INTEGRATION_USERNAME
+        - script: echo CLICONFIGQUAY_INTEGRATION_PASSWORD=${#CLICONFIGQUAY_INTEGRATION_PASSWORD}
+        - script: echo CLICONFIGQUAY_INTEGRATION_EMAIL=$CLICONFIGQUAY_INTEGRATION_EMAIL
+        - script: docker pull quay.io/revathird/samplenode_test
         
