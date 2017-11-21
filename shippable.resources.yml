@@ -11,34 +11,4 @@ resources:
       sourceName: "shippabledocker/pipelinev2"
     seed:
       versionName: "deploy.1"
-
-  - name: cli-dopts1
-    type: dockerOptions
-    version:
-      memory: 124
-      cpuShares: 1
-      publishAllPorts : true
-      portMappings:
-        - "80:80"
- 
-  - name: cli-params1
-    type: params
-    version:
-      params:
-        MONGO_API_URL: "localhost:28017"
-        DB_HOST: "ds015700.mlab.com"
-        DB_NAME: "ayeaye"
-        DB_PORT: "15700"
-        DB_USERNAME: "aye0aye"
-        DB_PASSWORD: "aye0aye"
-        ENVIRONMENT: "test-aws"
-        
-  - name: cli-scale1
-    type: replicas
-    version:
-      count: 1
-  
-  - name: cli-version
-    type: version
-    seed:
-      versionName: "0.0.0"
+      
