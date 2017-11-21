@@ -11,4 +11,4 @@ jobs:
       - IN: climanifest1
       - IN: clikubecluster
       - TASK: managed
-        
+        deployMethod: replace
