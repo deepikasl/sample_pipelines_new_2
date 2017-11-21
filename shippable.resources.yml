@@ -2,11 +2,11 @@ resources:
 
   - name: clikubecluster
     type: cluster
-    integration: "kube"
+    integration: deepika-kube
     
   - name: cli-image1
     type: image
-    integration: docker
+    integration: deepika-docker
     pointer:
       sourceName: "shippabledocker/pipelinev2"
     seed:
