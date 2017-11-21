@@ -15,5 +15,5 @@ resources:
   - name: cli-scale1
     type: replicas
     version:
-      count: 1
+      count: 2
  
