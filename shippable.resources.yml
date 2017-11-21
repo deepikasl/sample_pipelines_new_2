@@ -1,49 +1,8 @@
 resources:
 
-  - name: cliecrcluster
-    type: cluster
-    integration: "awskeys"
-    pointer:
-      sourceName : "testrelease"
-      region: "us-west-2"
-  
   - name: clikubecluster
     type: cluster
     integration: "kube"
-    
-  - name: cligkecluster
-    type: cluster
-    integration: gcl
-    pointer:
-      sourceName: "small-cluster" #name of the cluster we are deploying.
-      region: "us-central1-a"
-
-  - name: cli-configaws
-    type: cliConfig
-    integration: "awskeys"
-    pointer:
-      sourceName : "testrc"
-      region: "us-west-2"
-  
-  - name: cli-configdocker
-    type: cliConfig
-    integration: "docker"
-  
-  - name: cli-configgcl
-    type: cliConfig
-    integration: "gcl"
-  
-  - name: cli-configjfrog
-    type: cliConfig
-    integration: "jfrog"
-  
-  - name: cli-configkube
-    type: cliConfig
-    integration: "kube"
-  
-  - name: cli-configquay
-    type: cliConfig
-    integration: "quay"
     
   - name: cli-image1
     type: image
@@ -52,14 +11,6 @@ resources:
       sourceName: "shippabledocker/pipelinev2"
     seed:
       versionName: "deploy.1"
-
-  - name: cli-image2
-    type: image
-    integration: docker
-    pointer:
-      sourceName: "scriptnull/busybox"
-    seed:
-      versionName: "nodeenv"
 
   - name: cli-dopts1
     type: dockerOptions
@@ -81,13 +32,6 @@ resources:
         DB_USERNAME: "aye0aye"
         DB_PASSWORD: "aye0aye"
         ENVIRONMENT: "test-aws"
-  
-  - name: cli-params2
-    type: params
-    version:
-      params:
-        TEST: rc
-        secure: jSG65hVDJRaBuT/bRxTvpAC6rFcQswtSXpMYg46lnutNJ2sOsReYNTxXMvPoymro7MKlH9UiaKXndgMFrOkymzg9Tog3RqGXCKvaTLsa0gK7e/SFOs5TxeX27KcRut6e1TiL0Y3opTVJgWnTMkslWitFRcjXwGyrvzQrEQr78q+xhnLal72xvc4ojFaWUdTL72g3iNLklhoI4EsMoOj5KQnTZ2tgR+4/pYTKn6cCKzzK58T/rZXSqGb8QSSXTTGk3OH0rjKWd29Al082BRvPbcscPR2AfEdaAwtE7BJ06JPqBc+vDeFKD/bg00Euo02fed4uGh5T6W61FrdqZig/LA==
         
   - name: cli-scale1
     type: replicas
@@ -98,10 +42,3 @@ resources:
     type: version
     seed:
       versionName: "0.0.0"
-
-  - name: cli-repo
-    type: gitRepo
-    integration: github
-    pointer:
-      sourceName: Varsha-Arun/sample_pipelines
-      branch: integrationsCli
