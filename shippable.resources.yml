@@ -12,3 +12,8 @@ resources:
     seed:
       versionName: "deploy.1"
       
+  - name: cli-scale1
+    type: replicas
+    version:
+      count: 1
+ 
