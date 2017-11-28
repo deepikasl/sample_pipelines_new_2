@@ -4,4 +4,5 @@ jobs:
     type: runSh
     steps:
       - IN: state
-        
+      - TASK:
+        - script: echo "test job"
