@@ -1,5 +1,5 @@
 triggers:
-   - name: trigger-dv-man-kube
+   - name: trigger-dv-man-state
      type: trigger
      version:
        counter: 1
