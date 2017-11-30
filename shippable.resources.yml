@@ -38,6 +38,10 @@ resources:
     integration: deepika-git
     pointer:
       sourceName: "deepikasl/VT1"
-      branch: master
+      branches:
+        only:
+          - master
       buildOnPullRequestClose: true
       buildOnPullRequest: true
+      buildOnRelease: true
+      buildOnTagPush: true
