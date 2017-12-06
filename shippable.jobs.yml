@@ -11,5 +11,10 @@ jobs:
       - IN: test_params
       - IN: VT1_runCI
       
-      
+  - name: dv-man
+    type: manifest
+    steps:
+      - IN: dv-image
+        pull: false
+      - IN: VT1_runCI
   
