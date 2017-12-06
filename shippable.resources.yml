@@ -5,7 +5,7 @@ resources:
       params:
         TEST: rc
 
-  - name: dv-image
+  - name: dv-image-citest
     type: image
     integration: deepika-docker
     pointer:
