@@ -4,3 +4,11 @@ resources:
     version:
       params:
         TEST: rc
+
+  - name: dv-image
+    type: image
+    integration: deepika-docker
+    pointer:
+      sourceName: "library/nginx"
+    seed:
+      versionName: latest
