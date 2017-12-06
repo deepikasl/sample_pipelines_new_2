@@ -9,7 +9,7 @@ jobs:
     type: runCI
     steps:
       - IN: test_params
-      - IN: dv-image
+      - IN: dv-man
       - IN: VT1_runCI
       
   - name: dv-man
