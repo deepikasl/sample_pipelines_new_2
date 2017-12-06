@@ -9,12 +9,12 @@ jobs:
     type: runCI
     steps:
       - IN: test_params
-      - IN: dv-man
+      - IN: dv-man-citest
       - IN: VT1_runCI
       
-  - name: dv-man
+  - name: dv-man-citest
     type: manifest
     steps:
-      - IN: dv-image
+      - IN: dv-image-citest
         pull: false
   
