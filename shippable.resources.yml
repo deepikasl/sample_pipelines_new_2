@@ -11,6 +11,7 @@ resources:
     pointer:
       sourceName: deepika-lb
       method: classic
+      role: "AWSServiceRoleForECS"
       
   - name: lb-dv-image
     type: image
