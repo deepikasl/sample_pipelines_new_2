@@ -3,7 +3,7 @@ jobs:
     type: manifest
     steps:
       - IN: lb-dv-image
-      #- IN: ecsdopts3000
+      - IN: ecsdopts3000
         
   - name: lb-ecs-deploy
     type: deploy
