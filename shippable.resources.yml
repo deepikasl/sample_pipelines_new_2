@@ -11,7 +11,7 @@ resources:
     pointer:
       sourceName: deepika-lb
       
-  - name: dv-image
+  - name: lb-dv-image
     type: image
     integration: deepika-docker
     pointer:
