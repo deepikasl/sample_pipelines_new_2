@@ -3,7 +3,7 @@ jobs:
     type: manifest
     steps:
       - IN: lb-dv-image
-      - IN: ecsdopts3000
+      #- IN: ecsdopts3000
         
   - name: lb-ecs-deploy
     type: deploy
@@ -11,9 +11,9 @@ jobs:
       - IN: lb-ecs-mani
       - IN: ecscluster
       - IN: lb-ecs
-        #applyTo:
-          #- manifest: lb-ecs-mani
-            #image: lb-dv-image
-            #port: 3000
+        applyTo:
+          - manifest: lb-ecs-mani
+            image: lb-dv-image
+            port: 3000
       - TASK: managed
         #deployMethod: replace
