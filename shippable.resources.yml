@@ -17,8 +17,8 @@ resources:
     integration: deepika-docker
     pointer:
       sourceName: "library/nginx"
-    seed:
-      versionName: latest
+   # seed:
+      #versionName: latest
 
   - name: ecsdopts3000
     type: dockerOptions
