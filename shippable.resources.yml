@@ -10,6 +10,7 @@ resources:
     type: loadBalancer
     pointer:
       sourceName: deepika-lb
+      method: classic
       
   - name: lb-dv-image
     type: image
