@@ -1,4 +1,12 @@
 resources:
+  - name: dv-image-lb
+    type: image
+    integration: deepika-docker
+    pointer:
+      sourceName: "library/nginx"
+    seed:
+      versionName: latest
+ 
   - name: sn-gke-service-lb                               #required
     type: loadBalancer                          #required
     integration: deepika-gCloud  #Required for use in provision jobs
