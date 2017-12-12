@@ -1,6 +1,6 @@
 jobs:
   - name: deployService-2
-     type: provision
-     steps:
-       - IN: sn-gke-service-lb 
+    type: provision
+    steps:
+      - IN: sn-gke-service-lb 
         
