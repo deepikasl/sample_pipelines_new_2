@@ -1,5 +1,5 @@
 triggers:
-   - name: trigger-dv-man-kube
+   - name: trigger-dv-man-gcloud
      type: trigger
      version:
        counter: 1
