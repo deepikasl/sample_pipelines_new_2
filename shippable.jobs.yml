@@ -4,7 +4,7 @@ jobs:
     steps:
       - IN: sn-gke-service-lb 
   
-  - name: deployService-2
+  - name: deployService-k
     type: provision
     steps:
       - IN: sn-kube-service-lb
