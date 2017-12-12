@@ -3,7 +3,7 @@ resources:
     type: loadBalancer                          #required
     integration: deepika-gCloud  #Required for use in provision jobs
     pointer:
-      sourceName: "xyz-scriptnull-local"  # the service name (metadata.name)
+      sourceName: "xyz-scriptnull-local-1"  # the service name (metadata.name)
       method: ClusterIP # the service type Kubernetes default: ClusterIP
       clusterName: "cluster-1" # The namespace for the service
       region: "us-central1-a"
