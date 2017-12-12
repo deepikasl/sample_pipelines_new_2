@@ -3,6 +3,7 @@ jobs:
     type: provision
     steps:
       - IN: sn-gke-service-lb 
+      - IN: dv-image-lb
   
   - name: deployService-k
     type: provision
