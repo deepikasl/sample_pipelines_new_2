@@ -1,5 +1,5 @@
 jobs:
-- name: dv-man-tripub
+  - name: dv-man-tripub
     type: manifest
     steps:
       - IN: dv-image-tripub
