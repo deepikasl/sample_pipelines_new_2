@@ -1,21 +1,14 @@
 jobs:
-# 
-# # jobs for pipelines from CI thru PROD environment
-#
-# ################################
-#
-# # generate manifest
-  - name: dev-manifest-1
+- name: dv-man-tripub
     type: manifest
     steps:
-      - IN: docker-image
-      - IN: docker-options
-      - TASK: managed
+      - IN: dv-image-tripub
+        pull: false
 
 # # TEST deployment to Triton
-  - name: deploy-to-dev
-    type: deploy
-    steps:
-      - IN: dev-manifest-1
-      - IN: joyent-dev-sw1
+  - name: deploy-tripubbluegreen
+    type: deploy  
+    steps:      
+      - IN: dv-man-tripub
+      - IN: triton_cluster
       - TASK: managed
