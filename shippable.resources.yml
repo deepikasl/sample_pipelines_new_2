@@ -1,27 +1,15 @@
 resources:
-  - name: docker-image
+  - name: dv-image-tripub
     type: image
     integration: deepika-docker
     pointer:
-      sourceName: "ubuntu"
-      isPull: true
+      sourceName: "library/nginx"
     seed:
-      versionName: "latest"
+      versionName: latest
 
-# # TEST resources
-
-# # add TEST env - Triton cluster
-  - name: joyent-dev-sw1
+  - name: triton_cluster
     type: cluster
-    integration: deepika-triton
+    integration: deepika-tripub
     pointer:
+      sourceName: "default" # we can give anything it deploy instances based on region not by cluster name
       region: "us-east-2"
-
-# # Docker Image Options
-  - name: docker-options
-    type: dockerOptions
-    version:
-      labels:
-        com.joyent.package: g4-highcpu-128M
-      cmd:
-        - /bin/sh -c \\\"while true; do echo hello world; sleep 1; done\\\"
