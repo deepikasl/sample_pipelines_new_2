@@ -1,47 +1,22 @@
 resources:
-  - name: dv-image
-    type: image
-    integration: deepika-docker
-    pointer:
-      sourceName: "library/nginx"
+
+  - name: version-resource
+    type: version
     seed:
-      versionName: latest
+      versionName: "0.0.1-beta"
 
-  - name: slackNotification
-    type: notification
-    integration: deepika-slack
+  - name: repo
+    type: gitRepo
+    integration: github
     pointer:
-      recipients:
-        - "#deepika-test"
-
-  - name: myEmail
+      sourceName: deepikasl/VT1
+      branch: master
+      
+  - name: notify-slack
     type: notification
     pointer:
       method: email
-      recipients:
-        -  "deepika@shippable.com"
-
-  - name: dockerIntegration
-    type: integration
-    integration: deepika-docker
-
- # - name: testSshKey
- #   type: integration
- #   integration: test-sshKey
-
-  - name: deep_gh_ssh
-    type: integration
-    integration: deep_gh_ssh
-    
-  - name: deepika-gitRepo
-    type: gitRepo
-    integration: deepika-git
-    pointer:
-      sourceName: "deepikasl/VT1"
-      branches:
-        only:
-          - master
-      buildOnPullRequestClose: true
-      buildOnPullRequest: true
-      buildOnRelease: true
-      buildOnTagPush: true
+      recipients: 
+        - deepika@shippable.com
+        - varsha@shippable.com
+        
