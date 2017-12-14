@@ -5,6 +5,7 @@ jobs:
       - IN: repo
       - TASK:
         - script: ls
+        - script: echo "sourcename--> " $SIMPLERUNSH_SOURCENAME
         #- script: ./GET/infra-repo/infra-repo/provision.sh
     always:
       - script: echo "This works on_always"
