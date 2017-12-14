@@ -1,131 +1,22 @@
 resources:
 
-  - name: tripub-cluster
-    type: tripubCluster
-    integration: varsha-tritonpublic
-    pointer:
-      region: "us-east-1"
-
- # - name: ecs-cluster
-  #  type: ecsCluster
-   # integration: ric03uec-ecs
-    #pointer:
-     # sourceName : "test-aws" #name of the cluster we are deploying
-      #region: "us-east-1"
-      
-  #- name: dcl-cluster
-   # type: dclCluster
-    #integration: sid-dcl
-    #pointer:
-     #sourceName : "docker-cloud-node" #name of the cluster we are deploying
-     
-  #- name: gke-cluster
-   # type: gkeCluster
-    #integration: gke-int
-    #pointer:
-     # sourceName: "sid-test-gke-cluster-1" #name of the cluster we are deploying.
-      #region: "us-central1-b"
-
-  - name: sp-image1
-    type: image
-    integration: cock1-hub
-    pointer:
-      sourceName: "shiphitchcock1/betaci_nod_limitless_pl"
-    seed:
-      versionName: "deploy.4"
-      
-  - name: sp-image2
-    type: image
-    integration: cock1-hub
-    pointer:
-      sourceName: "shiphitchcock1/betaci_nod_limitless_pl"
-    seed:
-      versionName: "deploy.5"
-      
-  - name: sp-image3
-    type: image
-    integration: cock1-hub
-    pointer:
-      sourceName: "scriptnull/busybox"
-    seed:
-      versionName: "nodeenv"
-
-  - name: sp-dopts1
-    type: dockerOptions
-    version:
-      memory: 64
-      cpuShares: 8
-      portMappings:
-        - "80:80"
-        
-  - name: sp-opts2
-    type: dockerOptions
-    version:
-      memory: 200
-      cpuShares: 16
-      
-  - name: sp-tpdopts
-    type: dockerOptions
-    version:
-      memory: 128
-      #Triton has standard values for memory 128,512 etc.
-      #If non standard values is given in the memory, it chooses the closest
-      #standard memory value. Triton also uses this value to choose the plan
-      #and cpu-shares
-      publishAllPorts : true
-      #publishAllPorts assigns a public ip to the container and gives endpoint
-      #for accessing the exposed ports.
-      
-  - name: sp-tpdopts1
-    type: dockerOptions
-    version:
-      memory: 200
-      #Triton has standard values for memory 128,512 etc.
-      #If non standard values is given in the memory, it chooses the closest
-      #standard memory value. Triton also uses this value to choose the plan
-      #and cpu-shares
-      publishAllPorts : false
-
-  - name: sp-params1
-    type: params
-    version:
-      params:
-        MONGO_API_URL: "localhost:28017"
-
-  - name: sp-params2
-    type: params
-    version:
-      params:
-        DB_HOST: "ds015700.mlab.com"
-        DB_NAME: "ayeaye"
-        DB_PORT: "15700"
-        DB_USERNAME: "aye0aye"
-        DB_PASSWORD: "aye0aye"
-        ENVIRONMENT: "test-aws"
-
-  - name: sp-scale1
-    type: replicas
-    version:
-      count: 1
-      
-  - name: sp-scale2
-    type: replicas
-    version:
-      count: 2
-
-  - name: sp-scale3
-    type: replicas
-    version:
-      count: 3
-  
   - name: version-resource
     type: version
     seed:
       versionName: "0.0.1-beta"
 
-  #- name: infra-repo
-   # type: gitRepo
-    #integration: github
-    #pointer:
-     # sourceName: shippableSamples/infra-repo
-      #branch: master
+  - name: repo
+    type: gitRepo
+    integration: github
+    pointer:
+      sourceName: Varsha-Arun/sample_pipelines
+      branch: master
+      
+  - name: notify-slack
+    type: notification
+    integration: "slack"
+    pointer:
+      recipients:
+        - "#rc-public" 
+        - "#rc-private"
+        
