@@ -14,9 +14,9 @@ resources:
       
   - name: notify-slack
     type: notification
-    integration: "slack"
     pointer:
-      recipients:
-        - "#rc-public" 
-        - "#rc-private"
+      method: email
+      recipients: 
+        - deepika@shippable.com
+        - varsha@shippable.com
         
