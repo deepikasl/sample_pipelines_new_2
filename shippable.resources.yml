@@ -18,5 +18,4 @@ resources:
       method: email
       recipients: 
         - deepika@shippable.com
-        - varsha@shippable.com
         
