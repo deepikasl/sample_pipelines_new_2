@@ -4,9 +4,11 @@ jobs:
     steps:
       - IN: repo
       - TASK:
-        - script: ls
-        - script: echo "sourcename--> " $SIMPLERUNSH_SOURCENAME
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
+        - script: cd ./IN/deepikasl/gitRepo/README.md
+        - script: rm -rf node_modules
+        - script: npm install
         #- script: ./GET/infra-repo/infra-repo/provision.sh
-    always:
-      - script: echo "This works on_always"
-      - NOTIFY: notify-slack
