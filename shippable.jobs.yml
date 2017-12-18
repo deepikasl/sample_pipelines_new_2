@@ -11,4 +11,3 @@ jobs:
         - script: cd ./IN/repo/gitRepo/automation
        # - script: rm -rf node_modules
         - script: npm install
-        #- script: ./GET/infra-repo/infra-repo/provision.sh
