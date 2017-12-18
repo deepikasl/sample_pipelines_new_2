@@ -9,6 +9,6 @@ jobs:
         - script: nvm install "8.9.1"
         - script: nvm use "8.9.1"
         - script: cd ./IN/repo/gitRepo/automation
-        - script: rm -rf node_modules
+       # - script: rm -rf node_modules
         - script: npm install
         #- script: ./GET/infra-repo/infra-repo/provision.sh
