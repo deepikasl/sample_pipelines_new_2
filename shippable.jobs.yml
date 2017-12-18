@@ -8,7 +8,7 @@ jobs:
         - script: source ~/.nvm/nvm.sh
         - script: nvm install "8.9.1"
         - script: nvm use "8.9.1"
-        - script: cd ./IN/deepikasl/gitRepo/README.md
+        - script: cd ./IN/vt1/gitRepo/README.md
         - script: rm -rf node_modules
         - script: npm install
         #- script: ./GET/infra-repo/infra-repo/provision.sh
