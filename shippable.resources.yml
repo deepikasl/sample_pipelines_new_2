@@ -8,6 +8,6 @@ resources:
       versionName: latest
 
   - name: time-resource
-    type: type
+    type: time
     seed:
       interval: "*/2 * * * *"
