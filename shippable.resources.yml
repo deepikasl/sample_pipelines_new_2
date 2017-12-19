@@ -10,4 +10,4 @@ resources:
   - name: time-resource
     type: time
     seed:
-      interval: "*/2 * * * *"
+      interval: "*/1 * * * *"
