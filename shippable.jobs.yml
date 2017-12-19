@@ -1,8 +1,8 @@
 jobs:
-  - name: dv-man
+  - name: dv-man-tm
     type: manifest
     steps:
-      - IN: dv-image
+      - IN: dv-image-tm
         pull: false
       - IN: time-resource
  
