@@ -1,5 +1,5 @@
 resources:
-  - name: dv-image
+  - name: dv-image-tm
     type: image
     integration: deepika-docker
     pointer:
