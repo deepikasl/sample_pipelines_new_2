@@ -5,24 +5,11 @@ resources:
     pointer:
       sourceName : "deepika-cluster" #name of the cluster we are deploying
       region: "us-east-2"
-
-  - name: lb-ecs
-    type: loadBalancer
-    pointer:
-      sourceName: deepika-lb
-      method: classic
-      role: "AWSServiceRoleForECS"
       
-  - name: lb-dv-image
+  - name: ecs-dv-image
     type: image
     integration: deepika-docker
     pointer:
       sourceName: "library/nginx"
     seed:
       versionName: latest
-
-  - name: ecsdopts3000
-    type: dockerOptions
-    version:
-      portMappings:
-        - "80:3000"
