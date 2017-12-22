@@ -1,19 +1,13 @@
 jobs:
-  - name: lb-ecs-mani
+  - name: ecs-mani
     type: manifest
     steps:
-      - IN: lb-dv-image
-      - IN: ecsdopts3000
+      - IN: ecs-dv-image
         
   - name: lb-ecs-deploy
     type: deploy
     steps:
-      - IN: lb-ecs-mani
+      - IN: ecs-mani
       - IN: ecscluster
-      - IN: lb-ecs
-        applyTo:
-          - manifest: lb-ecs-mani
-            image: lb-dv-image
-            port: 3000
       - TASK: managed
         #deployMethod: replace
