@@ -9,14 +9,6 @@ resources:
     type: gitRepo
     integration: github
     pointer:
-      sourceName: Varsha-Arun/sample_pipelines
-      branch: master
-      
-  - name: notify-slack
-    type: notification
-    pointer:
-      method: email
-      recipients: 
-        - deepika@shippable.com
-        - varsha@shippable.com
+      sourceName: deepikasl/vt1
+      branch: master1
         
