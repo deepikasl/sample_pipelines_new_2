@@ -8,4 +8,3 @@ jobs:
         #- script: ./GET/infra-repo/infra-repo/provision.sh
     always:
       - script: echo "This works on_always"
-      - NOTIFY: notify-slack
