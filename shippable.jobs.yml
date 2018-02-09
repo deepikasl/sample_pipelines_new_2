@@ -44,16 +44,7 @@ jobs:
   - name: runSh-main
     type: runSh
     steps: 
-      - IN: nginx_prod_8
-      - OUT: nginx_prod_9      
-      - IN: failed_manifest 
-      - IN: skipped_manifest 
-      - IN: cancelled_runSh 
-      - IN: inconsistent_manifest 
-      - IN: unbuilt_manifest       
-      - IN: success_manifest       
-      - IN: sample_java_runCI
-      - IN: sample_node_runCI      
+      - IN: base_manifest  
       - TASK:
         - script: echo "true"
     on_success:
