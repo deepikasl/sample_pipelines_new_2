@@ -25,6 +25,11 @@ resources:
     type: integration
     integration: deepika-docker
 
+  - name: version-resource
+    type: version
+    seed:
+      versionName: "0.0.2-beta"
+      
  # - name: testSshKey
  #   type: integration
  #   integration: test-sshKey
