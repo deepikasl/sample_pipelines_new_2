@@ -4,6 +4,14 @@ resources:
     type: version
     seed:
       versionName: "0.0.1-beta"
+      
+  - name: dv-image-1
+    type: image
+    integration: deepika-docker
+    pointer:
+      sourceName: "library/nginx"
+    seed:
+      versionName: latest
 
   - name: repo
     type: gitRepo
