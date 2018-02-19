@@ -11,4 +11,6 @@ resources:
     pointer:
       sourceName: deepikasl/vt1
       branch: master
+    versionTemplate:
+      buildOnPullRequest: true
         
