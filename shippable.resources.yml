@@ -1,6 +1,6 @@
 resources:
 
-  - name: version-resource
+  - name: version-resource-1
     type: version
     seed:
       versionName: "0.0.1-beta"
@@ -10,5 +10,5 @@ resources:
     integration: github
     pointer:
       sourceName: deepikasl/vt1
-      branch: master1
+      branch: master
         
