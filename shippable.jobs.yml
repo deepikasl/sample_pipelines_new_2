@@ -3,7 +3,7 @@ jobs:
   - name: dv-man-1
     type: manifest
     steps:
-      - IN: dv-image
+      - IN: dv-image-1
       - IN: repo
    
   - name: simplerunsh
