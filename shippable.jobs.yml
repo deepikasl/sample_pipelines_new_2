@@ -18,7 +18,7 @@ jobs:
       - TASK: managed
         bump: major
 
-  - name: infra-provision
+  - name: infra-provision-long-long-very-long-name-to-test
     type: runSh
     steps:
       - IN: dv-man
