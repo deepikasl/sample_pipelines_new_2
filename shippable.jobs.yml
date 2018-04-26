@@ -10,7 +10,7 @@ jobs:
     steps:
       - IN: dv-man
 
-  - name: release-one
+  - name: release-one-text-ver-very-very-very-very-very-very-long-to-test-truncation-and-height
     type: release
     steps:
       - IN: dv-man
