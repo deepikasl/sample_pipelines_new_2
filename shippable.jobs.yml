@@ -5,37 +5,9 @@ jobs:
       - IN: dv-image
         pull: false
 
-  - name: multi-manifest
-    type:  deploy
-    steps:
-      - IN: dv-man
-
-  - name: release-one-text-ver-very-very-very-very-very-very-long-to-test-truncation-and-height
-    type: release
-    steps:
-      - IN: dv-man
-      - IN: version-resource
-      - TASK: managed
-        bump: major
-
   - name: infra-provision-long-long-very-long-name-to-test
     type: runSh
     steps:
       - IN: dv-man
-      - IN: deep_gh_ssh
-      - IN: deepika-gitRepo
       - TASK:
-        - script: echo "is_Pull_Request--->"$DEEPIKAGITREPO_IS_PULL_REQUEST
-        - script: echo "is_Pull_Request_CLOSE--->"$DEEPIKAGITREPO_IS_PULL_REQUEST_CLOSE
-        - script: cd IN/
-        #- script: cd deep_gh_ssh/
-        #- script: ls -a
-        #- script: ssh -tt -i "deep_gh_ssh_key" ubuntu@ec2-54-89-188-192.compute-1.amazonaws.com 'touch hellodeep.txt'
-        
-        - script: echo "integration name------>-"$DEEP_GH_SSH_NAME
-        - script: echo "public key------>-"$DEEP_GH_SSH_INTEGRATION_PUBLICKEY
-        - script: echo "private key----->-"$DEEP_GH_SSH_INTEGRATION_PRIVATEKEY
-        - script: echo "public key path----->-"$DEEP_GH_SSH_PUBLIC_KEY_PATH
-        - script: echo "private key path------->-"$DEEP_GH_SSH_PRIVATE_KEY_PATH
-        - script: 
-        
+        - script: echo "here"
