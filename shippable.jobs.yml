@@ -1,3 +1,6 @@
+templates7: &template-script-7
+  - echo "common-script 17"
+  - echo "common-script 27"
 jobs:
   - name: sample-job-A
     type: runSh
@@ -9,5 +12,6 @@ jobs:
             - *template-script-2
             - *template-script-3
             - *template-script-5
+            - *template-script-7
             - echo "This is some more script"
             
