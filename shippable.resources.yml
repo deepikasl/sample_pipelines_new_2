@@ -1,52 +1,21 @@
 resources:
-  - name: dv-image
+
+  - name: box-nginx-1-1
     type: image
-    integration: deepika-docker
+    integration: dockerhub
     pointer:
       sourceName: "library/nginx"
+      isPull: false
     seed:
       versionName: latest
 
-  - name: slackNotification
-    type: notification
-    integration: deepika-slack
+  - name: box-nginx-1-1-1
+    type: image
+    integration: dockerhub
+    flags: flg2
     pointer:
-      recipients:
-        - "#deepika-test"
-
-  - name: myEmail
-    type: notification
-    pointer:
-      method: email
-      recipients:
-        -  "deepika@shippable.com"
-
-  - name: dockerIntegration
-    type: integration
-    integration: deepika-docker
-
-  - name: version-resource
-    type: version
+      sourceName: "library/nginx"
+      isPull: false
     seed:
-      versionName: "0.0.2-beta"
+      versionName: latest
       
- # - name: testSshKey
- #   type: integration
- #   integration: test-sshKey
-
-  - name: deep_gh_ssh
-    type: integration
-    integration: deep_gh_ssh
-    
-  - name: deepika-gitRepo
-    type: gitRepo
-    integration: deepika-git
-    pointer:
-      sourceName: "deepikasl/VT1"
-      branches:
-        only:
-          - master
-      buildOnPullRequestClose: true
-      buildOnPullRequest: true
-      buildOnRelease: true
-      buildOnTagPush: true
