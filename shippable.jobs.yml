@@ -7,5 +7,7 @@ jobs:
             - echo "This is job A"
             - *template-script-1
             - *template-script-2
+            - *template-script-3
+            - *template-script-5
             - echo "This is some more script"
             
