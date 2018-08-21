@@ -31,6 +31,13 @@ jobs:
       - IN: test-runSh-1
       - TASK:
         - script: echo "2nd test runSh job"
+        
+  - name: test-runSh-3
+    type: runSh
+    steps:
+      - IN: test-runSh-2
+      - TASK:
+        - script: echo "3rd test runSh job"
   
   - name: infra-provision-long-long-very-long-name-to-test
     type: runSh
